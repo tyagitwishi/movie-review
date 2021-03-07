@@ -20,11 +20,4 @@ public class User {
         user.setMoviesReviewed(new ArrayList<>());
         return user;
     }
-
-    public User addMovieReview(User user, String movieName) {
-        List<String> moviesList = user.getMoviesReviewed();
-        moviesList.add(movieName);
-        user.setMoviesReviewed(moviesList);
-        return user;
-    }
 }

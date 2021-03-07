@@ -1,52 +1,34 @@
 package com.twishi.main;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.twishi.main.service.ReviewService;
 
 public class main {
 
-    private static MoviesImpl moviesImpl = new MoviesImpl();
+    private static ReviewService reviewService = new ReviewService();
 
     public static void main(String[] args) {
 
-        addMovie("\"Don\" released in Year 2006 for Genre \"Action\" & \"Comedy\"");
-        addMovie("\"Tiger\" released in Year 2008 for Genre \"Drama\"");
-        addMovie("\"Padmaavat\" released in Year 2006 for Genre \"Comedy\"");
-        addMovie("\"Lunchbox\" released in Year 2021 for Genre \"Drama\"");
-        addMovie("\"Guru\" released in Year 2006 for Genre \"Drama\"");
-        addMovie("\"Metro\" released in Year 2006 for Genre \"Romance\"");
-        listTopNByCritics("Romance", 3);
-        moviesImpl.addUser("SRK");
-        moviesImpl.addUser("Salman");
-        moviesImpl.addUser("Deepika");
-        moviesImpl.addReview("SRK", "Don", 2);
-        moviesImpl.addReview("SRK", "Padmaavat", 8);
-        moviesImpl.addReview("Salman", "Don", 5);
-        moviesImpl.addReview("Deepika", "Don", 9);
-        moviesImpl.addReview("Deepika", "Guru", 6);
-        moviesImpl.addReview("SRK", "Don", 10);
-        moviesImpl.addReview("Deepika", "Lunchbox", 5);
-        moviesImpl.addReview("SRK", "Tiger", 5);
-        moviesImpl.addReview("SRK", "Metro", 7);
-        moviesImpl.getAvgReviewScoreByYear("2006");
-        moviesImpl.getAvgReviewScore("Don");
-        listTopNByCritics("comedy", 4);
-    }
-
-    private static void addMovie(String sentence) {
-        String[] arr = sentence.split(" ");
-
-        String movie = arr[0].substring(1, arr[0].length() - 1);
-        String year = arr[4];
-        List<String> genres = new ArrayList<>();
-        for (int i = 7; i < arr.length; i += 2) {
-            genres.add(arr[i].substring(1, arr[i].length() - 1).toLowerCase());
-        }
-
-        moviesImpl.addMovie(movie, year, genres);
-    }
-
-    private static void listTopNByCritics(String genre, int n) {
-        moviesImpl.listTopNByCritics(genre.toLowerCase(), n);
+        reviewService.addMovie("\"Don\" released in Year 2006 for Genres \"Action\" & \"Comedy\"");
+        reviewService.addMovie("\"Tiger\" released in year 2008 for Genre \"Drama\"");
+        reviewService.addMovie("\"Padmaavat\" released in Year 2006 for Genre \"Comedy\"");
+        reviewService.addMovie("\"Lunchbox\" released in Year 2021 for Genre \"Drama\"");
+        reviewService.addMovie("\"Guru\" released in Year 2006 for Genre \"Drama\"");
+        reviewService.addMovie("\"Metro\" released in Year 2006 for Genre \"Romance\"");
+        reviewService.listTopNByCritics("Romance", 3);
+        reviewService.addUser("SRK");
+        reviewService.addUser("Salman");
+        reviewService.addUser("Deepika");
+        reviewService.addReview("SRK", "Don", 2);
+        reviewService.addReview("SRK", "Padmaavat", 8);
+        reviewService.addReview("Salman", "Don", 5);
+        reviewService.addReview("Deepika", "Don", 9);
+        reviewService.addReview("Deepika", "Guru", 6);
+        reviewService.addReview("SRK", "Don", 10);
+        reviewService.addReview("Deepika", "Lunchbox", 5);
+        reviewService.addReview("SRK", "Tiger", 5);
+        reviewService.addReview("SRK", "Metro", 7);
+        reviewService.getAvgReviewScoreByYear("2006");
+        reviewService.getAvgReviewScore("Don");
+        reviewService.listTopNByCritics("comedy", 4);
     }
 }

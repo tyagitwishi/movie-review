@@ -26,17 +26,6 @@ public class Movie {
         return movie;
     }
 
-    public Movie addReview(Movie movie, boolean critic, int review) {
-        if (critic) {
-            movie.setReviewScore(movie.getReviewScore() + 2 * review);
-            movie.setReviewByCritics(movie.getReviewByCritics() + review);
-        } else {
-            movie.setReviewScore(movie.getReviewScore() + review);
-        }
-        movie.setTotalReviews(movie.getTotalReviews() + 1);
-        return movie;
-    }
-
     public float getAverage(Movie movie) {
         return (float) movie.getReviewScore() / (float) movie.getTotalReviews();
     }
